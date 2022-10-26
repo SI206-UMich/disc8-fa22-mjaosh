@@ -16,7 +16,19 @@ def getLink(soup):
 # founded and organize the same into key-value pairs.
 def getAdmissionsInfo2019(soup):
 
-    pass
+        table = soup.find('table', class_ = 'toccolours')
+        pairs = table.find_all('tr')
+        school = pairs.find_all('a', class_ = 'mw-redirect')
+        year = pairs.find_all('td',style = 'text-align:center')
+
+        d = {}
+        for i in range(len(school)):
+            d[school[i]] = year[i]
+
+        return d 
+
+
+    
 
 
 
